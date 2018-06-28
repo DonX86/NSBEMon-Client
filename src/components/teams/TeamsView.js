@@ -15,7 +15,7 @@ const TeamsView = (props) => {
 };
 
 TeamsView.propTypes = {
-  teams: PropTypes.string,
+  teams: PropTypes.array,
 };
 
 export default TeamsView;
