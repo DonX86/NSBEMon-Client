@@ -16,7 +16,7 @@ class Members extends React.Component {
       <Load
         loading={loading}
         error={error}
-        onLoad={() => <MembersView team={viewer.team} />}
+        onLoad={() => <MembersView members={viewer.team.members} />}
       />
     );
   }

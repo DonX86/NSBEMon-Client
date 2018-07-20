@@ -4,10 +4,11 @@ import { Container, Alert } from 'reactstrap';
 import MembersList from './MembersList';
 
 const MembersView = (props) => {
-  if (props.team && props.team.members) {
+
+  if (props.members) {
     return (
       <Container>
-        <MembersList members={props.team.members} />
+        <MembersList members={props.members} />
       </Container>
     );
   } else {

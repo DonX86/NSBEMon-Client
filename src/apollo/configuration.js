@@ -17,7 +17,7 @@ const authMiddleware = new ApolloLink((operation, forward) => {
 const client = new ApolloClient({
   link: from([
     authMiddleware,
-    createUploadLink({ uri: 'http://localhost:4001/graphql' })
+    createUploadLink({ uri: 'http://localhost:4000/graphql' })
   ]),
   cache: new InMemoryCache()
 });

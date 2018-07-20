@@ -7,36 +7,32 @@ import Load from '../utilities/Load';
 import MembersView from '../members//MembersView';
 
 class LeaderBaord extends React.Component {
-
   render() {
     // Gather the props from the apollo call
-    const { data: { loading, error, viewer }} = this.props;
+    const {
+      data: { loading, error, memberGetAll },
+    } = this.props;
 
     return (
       <Load
         loading={loading}
         error={error}
-        onLoad={() => <MembersView viewer={viewer} />}
+        onLoad={() => <MembersView members={memberGetAll} />}
       />
     );
   }
 }
 
 // Attach the data from the server
-const MembersQuery = gql`
-  query MembersQuery {
-    viewer {
+const AllMembersQuery = gql`
+  query AllMembersQuery {
+    memberGetAll {
       email
-      team {
-        members {
-          email
-          firstName
-          lastName
-          trainings {
-            category {
-              points
-            }
-          }
+      firstName
+      lastName
+      trainings {
+        category {
+          points
         }
       }
     }
@@ -47,4 +43,4 @@ LeaderBaord.propTypes = {
   data: PropTypes.object,
 };
 
-export default graphql(MembersQuery)(LeaderBaord);
+export default graphql(AllMembersQuery)(LeaderBaord);
