@@ -5,11 +5,11 @@ import _ from 'lodash';
 const renderItem = (item, index, headers) => {
 
   return (
-    <tr key={`${item[headers[0].key]}_${index}`}>
+    <tr key={`${_.get(headers, '0.key')}_${index}`}>
       <th scope="row">{index}</th>
       {
         headers.map((header, nextIndex) => (
-          <td key={`${item[header.key]}_${index}_${nextIndex}`} >
+          <td key={`${_.get(headers, '0.key')}_${index}_${nextIndex}`} >
             {_.get(item, header.key, '-')}
           </td>
         ))
